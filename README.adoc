@@ -10,7 +10,7 @@ HOW TO:
 
 * add java configuration
 
-[source,java]
+[source,kotlin]
 ----
 @Configuration
 class ThymeleafLayoutConfig {
