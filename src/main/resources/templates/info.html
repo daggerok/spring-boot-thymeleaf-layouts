@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+  <title>Info title</title>
+  <link rel="stylesheet" th:href="@{/info/styles.css}" href="/info/styles.css">
+</head>
+<body>
+<section layout:fragment="app-content">
+  <h3>Info header h3</h3>
+  <p>Info layout:fragment app-content section > p</p>
+</section>
+<footer>
+  <p layout:fragment="app-footer">Info layout:fragment app-footer footer > p</p>
+</footer>
+</body>
+</html>

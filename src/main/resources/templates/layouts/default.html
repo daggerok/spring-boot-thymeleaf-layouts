@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <title>Common title</title>
+  <link rel="shortcut icon" th:href="@{/favicon.ico}" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" th:href="@{/common/styles.css}" href="/common/styles.css">
+</head>
+<body>
+<header>
+  <ul>
+    <li><a th:href="@{/}" href="/">Home page</a></li>
+    <li><a th:href="@{/info}" href="/info">Info page</a></li>
+  </ul>
+</header>
+<div>
+  Common (intercepted) value: <span th:text="${now}">Here should be now value</span>
+</div>
+<section layout:fragment="app-content">
+  <p>Common layout:fragment app-content section > p</p>
+</section>
+<footer>
+  <p>Common footer > p</p>
+  <p layout:fragment="app-footer">Common layout:fragment app-footer > p</p>
+</footer>
+</body>
+</html>
