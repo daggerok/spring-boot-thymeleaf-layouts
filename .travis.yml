@@ -1,0 +1,34 @@
+env:
+  global:
+  - TERM=dumb
+
+language: java
+jdk: oraclejdk8
+
+install: true
+before_script:
+- sudo apt update -y >/dev/null 2>&1 || true
+- sudo apt install -y --no-install-recommends bash curl python-pip >/dev/null 2>&1
+- sudo pip install httpie >/dev/null 2>&1
+- source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
+- stop_any 80 8080
+
+script:
+- bash gradlew >/dev/null
+- bash ./build/libs/*.jar &
+- wait_for 8080
+- http :8080
+- http :8080/info accept:text/html
+- stop_any 80 8080
+#
+- bash mvnw >/dev/null
+- bash ./target/*.jar &
+- wait_for 8080
+- http :8080
+- http :8080/info accept:text/html
+- stop_any 80 8080
+
+cache:
+  directories:
+  - $HOME/.m2
+  - $HOME/.gradle

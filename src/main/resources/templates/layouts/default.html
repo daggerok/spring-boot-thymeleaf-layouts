@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+  <title>App</title>
+  <style>
+    .app-container {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 12fr 1fr;
+      grid-template-areas:
+          "app-nav"
+          "app-content"
+          "app-footer";
+    }
+
+    .app-nav {
+      grid-area: app-nav;
+    }
+
+    .app-content {
+      grid-area: app-content;
+    }
+
+    .app-footer {
+      grid-area: app-footer;
+    }
+  </style>
+</head>
+<body>
+<div layout:fragment="body-content" class="app-container">
+  <nav class="app-nav">
+    <span style="display: none" th:text="${now}">hidden</span>
+  </nav>
+
+  <main layout:fragment="app-content" class="app-content">
+    <p>Common layout:fragment app-content section > p</p>
+  </main>
+
+  <footer class="app-footer">
+    <p layout:fragment="app-footer">C O O L</p>
+  </footer>
+</div>
+</body>
+</html>

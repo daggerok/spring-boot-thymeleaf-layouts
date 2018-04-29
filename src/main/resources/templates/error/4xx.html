@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/base}">
+<head>
+  <title>Error</title>
+  <style>
+    .error-container {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-areas: "top" "middle" "bottom";
+    }
+
+    .top {
+      grid-area: top;
+    }
+
+    .middle {
+      grid-area: middle;
+      text-align: center;
+    }
+
+    .bottom {
+      grid-area: bottom;
+    }
+
+    .middle h1 {
+      font-size: 20vw;
+    }
+  </style>
+</head>
+<body>
+<div layout:fragment="body-content" class="error-container">
+  <div class="top">&nbsp;</div>
+  <div class="middle">
+    <h1>¯\_(ツ)_/¯</h1>
+  </div>
+  <div class="bottom">&nbsp;</div>
+  <script>
+    (function err() {
+      window.addEventListener('DOMContentLoaded', function loaded() {
+        setTimeout(function redirectToHome() {
+          window.location.pathname = '/';
+        }, 2000);
+      }, false);
+    })();
+  </script>
+</div>
+</body>
+</html>
