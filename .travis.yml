@@ -5,10 +5,18 @@ env:
 language: java
 jdk: oraclejdk8
 
+addons:
+  apt:
+    update: true
+    packages:
+    - bash
+    - curl
+    - python-pip
+    - sudo
+    - lsof
+
 install: true
 before_script:
-- sudo apt update -y >/dev/null 2>&1 || true
-- sudo apt install -y --no-install-recommends bash curl python-pip >/dev/null 2>&1
 - sudo pip install httpie >/dev/null 2>&1
 - source <(curl -s https://raw.githubusercontent.com/daggerok/bash-functions/master/main.bash)
 - stop_any 80 8080
